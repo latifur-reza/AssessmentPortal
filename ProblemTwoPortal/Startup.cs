@@ -45,7 +45,10 @@ namespace ProblemTwoPortal
 
             #endregion
 
-            services.AddControllers();
+            services.AddControllers(mvcOptions =>
+            {
+                mvcOptions.MaxIAsyncEnumerableBufferLimit = 2000000;
+            });
             services.AddControllers().AddNewtonsoftJson();
 
             #region Mysql Connection string from appSettings
